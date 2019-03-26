@@ -1,0 +1,12 @@
+polls/templates/polls/index.html
+
+{% if tic_list %}
+    <ul>
+    {% for ticket in tic_list %}
+        <li><a href="/tickets/{{ ticket.tid }}/">{{ ticket.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tickets available</p>
+{% endif %}
+

@@ -1,0 +1,61 @@
+{% load static %}
+
+<script src="{% static "js/jquery-3.2.1-1" %}"></script>
+<script src="{% static "js/rango-jquery.js" %}"></script> 
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1-1/jquery.min.js"></script>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticketing System</title>
+</head>
+<body>
+<section>
+<div class="container">
+    <!--form action="" method="GET">
+        <!--input type="search" placeholder="Enter Category" name="category"-->
+        
+        <!--button class="apireq">List All Tickets</button>
+            <!--/form-->
+            <br>
+        <h2>Ticket Records</h2>        
+            <div id = "jsonresp">
+                {% if tics %}
+            
+                <table>
+
+                    <tr>
+                        <th class="narrow">ID</th>
+                        <th>Ticket Type</th>
+                        <th>Category</th>
+                        <th>Title</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Request User</th>
+                        <th>Process Manager</th>
+                    </tr>
+                {% for ticket in tics %}
+                <tr>
+                    <td class="narrow">{{ ticket.t_id }}</td>
+                    <td>{{ticket.ttype }}</td>
+                    <td>{{ticket.category}}</td>
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ticket.priority}}</td>
+                    <td>{{ticket.status}}</td>
+                    <td>{{ticket.requestuser}}</td>
+                    <td>{{ticket.processmanager}}</td>
+                </tr>
+                {% endfor %}
+                </table>
+                {% else %}
+                <p>No tickets available</p>
+                {% endif %}
+            </div>
+
+<a href="{% url 'insert' %}"><button>Create new ticket</button></a>
+</body>
+</html>

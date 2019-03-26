@@ -1,0 +1,45 @@
+<a href="{% url 'index' %}">Home</a>.
+
+{% load static %}
+
+<script src="{% static "js/jquery-3.2.1-1" %}"></script>
+<script src="{% static "js/rango-jquery.js" %}"></script> 
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1-1/jquery.min.js"></script>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a new Ticket </title>
+</head>
+<body>
+<section>
+
+<div class="centered">
+    <br>
+    <h2>Create Ticket</h2><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+               <tr>  <td><b>Ticket Type   </b></td><td>: <input type="text" name="ttype" size = "10"></td>
+</tr><tr>
+                <td><b>Category      </b> </td><td>: <input type="text" name="category" size="10"></td>
+         </tr><tr>       
+                <td><b>Title*         </b> </td><td>: <input type="text" name="title" size="10"></td>
+         </tr><tr>       
+                 <td><b>Priority      </b> </td><td>: <input type="radio" name="priority" value="Highest"> Highest <input type="radio" name="priority" value="High"> High <input type="radio" name="priority" value="Medium"> Medium <input type="radio" name="priority" value="low"> Low</td>
+                </tr><tr><td><b>Request User*  </b></td> <td>: <input type="text" name="requestuser" size="10"></td> </tr></table>
+                
+
+<h6>(* marked fields are required)</h6>
+        <input type="submit" value="Create Ticket">
+        
+    </form>
+
+</div>    
+</section>
+</body>
+</html>
